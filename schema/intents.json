@@ -1,0 +1,24 @@
+[
+    {
+        "name": "ask-for-menu",
+        "webhookForSlotFilling": true,
+        "events": [],
+        "fallbackIntent": false,
+        "id": "cf1380e2-fed6-4351-9893-a2e3e14a5506",
+        "priority": 500000,
+        "webhookUsed": true,
+        "responses": [
+            {
+                "messages": [],
+                "resetContexts": false,
+                "action": "ask_for_menu",
+                "parameters": [],
+                "affectedContexts": []
+            }
+        ],
+        "userSays": [],
+        "contexts": [],
+        "auto": true,
+        "templates": []
+    }
+]
