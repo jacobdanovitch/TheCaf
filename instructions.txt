@@ -1,0 +1,4 @@
+1. Run ngrok.exe http 5000
+2. Paste forwarding address into dialogflow
+3. Run export client/dev tokens
+4. Run python webhook.py

@@ -1,24 +1,24 @@
 [
     {
+        "priority": 500000,
+        "events": [],
+        "id": "cf1380e2-fed6-4351-9893-a2e3e14a5506",
+        "contexts": [],
+        "webhookUsed": true,
         "name": "ask-for-menu",
         "webhookForSlotFilling": true,
-        "events": [],
-        "fallbackIntent": false,
-        "id": "cf1380e2-fed6-4351-9893-a2e3e14a5506",
-        "priority": 500000,
-        "webhookUsed": true,
+        "auto": true,
+        "templates": [],
         "responses": [
             {
-                "messages": [],
-                "resetContexts": false,
-                "action": "ask_for_menu",
                 "parameters": [],
-                "affectedContexts": []
+                "affectedContexts": [],
+                "messages": [],
+                "action": "ask_for_menu",
+                "resetContexts": false
             }
         ],
-        "userSays": [],
-        "contexts": [],
-        "auto": true,
-        "templates": []
+        "fallbackIntent": false,
+        "userSays": []
     }
 ]
