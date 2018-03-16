@@ -37,7 +37,7 @@ def ask_for_menu():
             speech += 'At the ' + station + ', there is: '
 
             for i, food in enumerate(menu[station]):
-                speech += " " + ("and " if (i == len(menu[station])-1) else "") + food + ("." if (i == len(menu[station])-1) else ",")
+                speech += " " + ("and " if (i == len(menu[station])-1 and i > 0) else "") + food + ("." if (i == len(menu[station])-1) else ",")
 
             speech += '\n'
     return tell(speech)
