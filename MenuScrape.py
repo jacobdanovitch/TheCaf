@@ -1,34 +1,33 @@
 from bs4 import BeautifulSoup
 import requests
 
-def scrape_menu(requested_stations):
-    menu = {}
+url = "https://carleton.campusdish.com/Commerce/Catalog/Menus.aspx?LocationId=5087"
 
-    url = "https://carleton.campusdish.com/Commerce/Catalog/Menus.aspx?LocationId=5087"
+def scrape_menu():
+    menu = {}
     data = BeautifulSoup(requests.get(url).text, "html.parser")
 
     stations = data.find_all("div", {"class": "menu-details-station"})
 
     for station in stations:
-        name = station.find("h2", {"class":"collapsible-header"}).get_text()
-        if name in requested_stations:
+        name = station.find("h2", {"class": "collapsible-header"}).get_text()
+        if name in ["Grill", "Global", "Farmer’s Market"]:
             menu[name] = [i.get_text() for i in station.find_all("a")]
+
     return menu
 
-
-def read_menu(requested_stations=["Grill", "Global", "Farmer’s Market"]):
-    menu = scrape_menu(requested_stations)
+def ask_for_menu():
+    menu = scrape_menu()
     speech = ''
 
     for station in menu:
-        speech += 'At the ' + station + ', there is: '
+        if len(menu[station])>0:
+            speech += 'At the ' + station + ', there is: '
 
-        for food in menu[station]:
-            speech += food + ', '
+            for i, food in enumerate(menu[station]):
+                speech += " " + food + ("." if (i == len(menu[station])-1) else ",")
 
-        speech += '.\n'
-    return speech
+            speech += '\n'
+    print(speech)
 
-
-
-print(read_menu())
+ask_for_menu()
