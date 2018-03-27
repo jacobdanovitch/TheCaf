@@ -21,7 +21,7 @@ def scrape_menu():
     stations = data.find_all("div", {"class": "menu-details-station"})
 
     for station in stations:
-        name = station.find("h2", {"class": "collapsible-header"}).get_text()
+        name = station.find("a", {"class": "collapsible-header"}).get_text()
         if name in ["Grill", "Global", "Farmer’s Market"]:
             menu[name] = [clean_text(i.get_text()) for i in station.find_all("div", {"class": "menu-details-station-item"})]
 
